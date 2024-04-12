@@ -1,4 +1,4 @@
-﻿//ST10341842 Mvinjelwa Buhle 
+//ST10341842 Mvinjelwa Buhle 
 //ProgPOE part 1
 using System;
 using System.Collections.Generic;
@@ -13,13 +13,14 @@ namespace ProgPOEPart1;
 
 internal class RecipeManager
 {
+    // List to store multiple recipe objects
     private List<Recipe> recipes = new List<Recipe>();
 
     public RecipeManager()
     {
         InitializeBasicRecipes(); // Initialize basic recipes upon instantiation
     }
-
+    // Method to add predefined recipes to the list
     private void InitializeBasicRecipes()
     {
         // Braai Chicken recipe
@@ -39,7 +40,7 @@ internal class RecipeManager
         });
         // Additional basic recipes can be added here
     }
-
+    //Main menu to handle user interaction with the application
     public void MainMenu()
     {
         bool appRunning = true;
@@ -62,7 +63,7 @@ internal class RecipeManager
                     ClearRecipeData();
                     break;
                 case "5":
-                    appRunning = false;
+                    appRunning = false; // Exit the loop and terminate the application
                     break;
                 default:
                     Console.WriteLine("Invalid choice. Please select 1, 2, 3, 4, or 5.");
@@ -70,7 +71,7 @@ internal class RecipeManager
             }
         }
     }
-
+    // Method to display all stored recipes
     private void ViewRecipes()
     {
         if (recipes.Count == 0)
@@ -85,7 +86,7 @@ internal class RecipeManager
             Console.WriteLine("------------------------------------------------");
         }
     }
-
+    // method to add a new recipe 
     private void AddRecipe()
     {
         Recipe recipe = new Recipe();
@@ -95,7 +96,7 @@ internal class RecipeManager
         recipes.Add(recipe);
         Console.WriteLine("Recipe added successfully.");
     }
-
+    // Method to scale the quantities in a recipe
     private void ScaleRecipe()
     {
         if (recipes.Count == 0)
@@ -123,7 +124,7 @@ internal class RecipeManager
             Console.WriteLine("Invalid recipe selection.");
         }
     }
-
+    //Method to clear Data from selected recipe 
     private void ClearRecipeData()
     {
         if (recipes.Count == 0)
